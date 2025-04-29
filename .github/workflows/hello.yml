@@ -1,0 +1,10 @@
+name: Hello #ワークフロー名
+
+on: push #イベント名　push時
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest #実行環境
+    steps:
+      - run: echo "hello world"  #シェルコマンドの実行
+      - uses: actions/checkout@v4 #アクションの呼び出し
