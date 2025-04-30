@@ -1,16 +1,16 @@
-name: Manual
-on: workflow_dispatch
-inputs:
-  greeting:
-    type: string
-    description: "Greeting message"
-    default: "Hello"
-    required: true #入力パラメーターの必須化
+ame: Manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      greeting:
+        type: string
+        description: "Greeting message"
+        default: "Hello"
+        required: true # 入力パラメーターの必須化
+
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{inputs.greeting}} world" #入力パラメーターの使用
-      - run: echo "This is a manual workflow"
-        env:
-          GREETING: ${{ inputs.greeting }} #入力パラメーターの使用
+      - run: echo "${{ github.event.inputs.greeting }} world" # 入力パラメーターの使用
