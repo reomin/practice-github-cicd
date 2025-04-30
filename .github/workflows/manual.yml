@@ -11,3 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{inputs.greeting}} world" #入力パラメーターの使用
+      - run: echo "This is a manual workflow"
+        env:
+          GREETING: ${{ inputs.greeting }} #入力パラメーターの使用
