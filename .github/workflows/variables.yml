@@ -6,4 +6,4 @@ jobs:
     env:
       USERNAME: ${{vars.USERNAME}} # ユーザー名を環境変数として設定
     steps:
-      - run: echo"Hello, ${USERNAME}!" # 環境変数を使用して挨拶
+      - run: echo "Hello, ${USERNAME}!" # 環境変数を使用して挨拶
