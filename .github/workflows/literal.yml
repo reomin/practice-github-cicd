@@ -1,14 +1,9 @@
 name: Literals
 on: push
 jobs:
-  print_literals:
+  print:
     runs-on: ubuntu-latest
     steps:
-      - run: printenv | grep 'LITERAL_' # 環境変数を表示
+      - run: printenv | grep 'LITERAL_'
         env:
-          LITERAL_STRING: ${{ "Hello, World" }} # 文字列リテラル
-          LITERAL_NUMBER: ${{ 42 }} # 数値リテラル
-          LITERAL_BOOLEAN: ${{ true }} # 真偽値リテラル
-          LITERAL_ARRAY: ${{ [1, 2, 3] }} # 配列リテラル
-          LITERAL_NULL: ${{ null }} # nullリテラル
-      - run: printenv
+          LITERAL_NULL: ${{ null }} # null型
