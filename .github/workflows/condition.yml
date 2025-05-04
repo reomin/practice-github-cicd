@@ -1,14 +1,17 @@
 name: Condition
+run-name: Run by ${{ github.actor }} # 実行者の名前を表示
 on: push
 jobs:
   skip-or-run:
+    name: set env
     runs-on: ubuntu-latest
     env:
       CONTAINS_FUNC: ${{ contains('Hello', 'ell') }} # 「ell」を含むか
       STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He') }} # 「He」で始まるか
       ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }} # 「lo」で終わる
     steps:
-      - run: printenv | grep '_FUNC'
+      - name: print env information
+        run: printenv | grep '_FUNC'
         if: ${{ contains(github.run.id, '1') }}
       - run: exit 1
       - run: echo "hello"
