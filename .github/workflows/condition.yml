@@ -1,7 +1,7 @@
-name: Compare functions
+name: Condition
 on: push
 jobs:
-  compare:
+  skip or run:
     runs-on: ubuntu-latest
     env:
       CONTAINS_FUNC: ${{ contains('Hello', 'ell') }} # 「ell」を含むか
@@ -9,6 +9,4 @@ jobs:
       ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }} # 「lo」で終わる
     steps:
       - run: printenv | grep '_FUNC'
-      - run: echo "${{ github.event.pull_request.html_url }}"
-      - run: echo "${{ toJSON(github) }}"
-      - run: echo ${{ hashFiles('.github/workflows/*.yml') }}
+        if: ${{ contains(github.run.id, '1') }}
