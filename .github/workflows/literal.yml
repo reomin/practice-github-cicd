@@ -1,6 +1,6 @@
 name: Literals
 on: push
-job:
+jobs:
   print_literals:
     runs-on: ubuntu-latest
     steps:
