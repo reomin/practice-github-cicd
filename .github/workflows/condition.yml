@@ -10,3 +10,6 @@ jobs:
     steps:
       - run: printenv | grep '_FUNC'
         if: ${{ contains(github.run.id, '1') }}
+      - run: exit 1
+      - run: echo "hello"
+        if: ${{failure()}}
