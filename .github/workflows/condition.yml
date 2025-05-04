@@ -1,7 +1,7 @@
 name: Condition
 on: push
 jobs:
-  skip or run:
+  skip-or-run:
     runs-on: ubuntu-latest
     env:
       CONTAINS_FUNC: ${{ contains('Hello', 'ell') }} # 「ell」を含むか
