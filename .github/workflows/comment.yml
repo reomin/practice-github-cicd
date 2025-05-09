@@ -1,0 +1,13 @@
+name: Comment API
+on: pull_request # PRのイベントをトリガーにする
+jobs:
+  runs-on: ubuntu-latest
+  permissions:
+    pull-requests: write # PRのコメントを更新するために必要
+    contents: read # リポジトリのコンテンツを読み取るために必要
+  steps:
+    - uses: actions/checkout@v4
+    - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub CLIの認証に必要
+
